@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Godly App - Legal & Support</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        header {
+            background: linear-gradient(135deg, #90EE90 0%, #F5F5DC 100%);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .nav-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #333;
+            border-left: 4px solid #90EE90;
+        }
+        .nav-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            border-left-color: #4CAF50;
+        }
+        .nav-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #2c5aa0;
+        }
+        .nav-card p {
+            font-size: 0.9em;
+            color: #666;
+        }
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .content h2 {
+            color: #2c5aa0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #90EE90;
+            padding-bottom: 10px;
+        }
+        .content h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.2em;
+        }
+        .content p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .content ul, .content ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .content li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .meta {
+            color: #999;
+            font-size: 0.9em;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .highlight {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #90EE90;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+        .back-btn:hover {
+            background: #4CAF50;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            .container { padding: 20px; }
+            .content { padding: 20px; }
+            nav { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Godly App</h1>
+        <p>Legal Documents & Support</p>
+    </header>
+
+    <div class="container">
+        <nav id="nav-menu">
+            <div class="nav-card" onclick="showContent('privacy')">
+                <h3>🔒 Privacy Policy</h3>
+                <p>How we handle your data</p>
+            </div>
+            <div class="nav-card" onclick="showContent('terms')">
+                <h3>📋 Terms of Service</h3>
+                <p>Usage guidelines & conditions</p>
+            </div>
+            <div class="nav-card" onclick="showContent('health')">
+                <h3>⚕️ Health Disclaimer</h3>
+                <p>Important health & mental health info</p>
+            </div>
+            <div class="nav-card" onclick="showContent('subscription')">
+                <h3>💳 Subscription Terms</h3>
+                <p>Plans, billing & refunds</p>
+            </div>
+            <div class="nav-card" onclick="showContent('attribution')">
+                <h3>🙏 Attribution</h3>
+                <p>Third-party services & credits</p>
+            </div>
+            <div class="nav-card" onclick="showContent('support')">
+                <h3>📧 Support</h3>
+                <p>Contact us & get help</p>
+            </div>
+        </nav>
+
+        <!-- Privacy Policy -->
+        <div id="privacy" class="content active">
+            <button class="back-btn" onclick="showNav()">← Back to Menu</button>
+            <h2>Privacy Policy</h2>
+            <p class="meta">Effective Date: August 12, 2025</p>
+            
+            <h3>We Don't Collect Your Personal Data</h3>
+            <div class="highlight">
+                <strong>The simple truth:</strong> Godly App doesn't collect names, emails, location data, or any personal information. Your Bible verse plans stay on your phone.
+            </div>
+
+            <h3>What Data Leaves Your Device?</h3>
+            <p>Only when you request an explanation, your selected Bible verse is sent to OpenAI's API to generate explanations. That's it.</p>
+            <ul>
+                <li><strong>OpenAI:</strong> Processes verse data per their privacy policy</li>
+                <li><strong>Bible API:</strong> Provides public domain Scripture content</li>
+                <li><strong>Apple:</strong> Handles subscriptions and billing</li>
+            </ul>
+
+            <h3>What Stays on Your Phone</h3>
+            <ul>
+                <li>Your verse plans</li>
+                <li>Your custom notes</li>
+                <li>Your reading history</li>
+                <li>Your preferences</li>
+            </ul>
+            <p><strong>We cannot access any of this.</strong> It's yours alone.</p>
+
+            <h3>Your Privacy Rights</h3>
+            <p>Since we don't collect personal data, GDPR and similar privacy laws don't require complex compliance from us. However:</p>
+            <ul>
+                <li>You can delete your data by deleting the app</li>
+                <li>You can request info about OpenAI's data practices at openai.com/privacy</li>
+                <li>Contact us with any privacy concerns</li>
+            </ul>
+
+            <h3>Children</h3>
+            <p>We do not knowingly collect data from children under 13. If you believe a child is using the App inappropriately, please contact us.</p>
+
+            <h3>Questions?</h3>
+            <p>Email: <strong>[Your Support Email]</strong></p>
+        </div>
+
+        <!-- Terms of Service -->
+        <div id="terms" class="content">
+            <button class="back-btn" onclick="showNav()">← Back to Menu</button>
+            <h2>Terms of Service</h2>
+            <p class="meta">Effective Date: August 12, 2025</p>
+
+            <h3>By Using This App, You Agree To:</h3>
+            <p>Download, install, or use Godly App means you accept these terms. If you don't agree, don't use the app.</p>
+
+            <h3>Subscription & Billing</h3>
+            <ul>
+                <li><strong>Monthly or Annual Plans</strong> via Apple App Store</li>
+                <li><strong>Auto-Renewal:</strong> Renews automatically unless you cancel</li>
+                <li><strong>Cancellation:</strong> Anytime through Apple Account settings</li>
+                <li><strong>No Refunds:</strong> We don't offer refunds for unused portions (Apple's policy)</li>
+            </ul>
+
+            <h3>What You Can Do</h3>
+            <ul>
+                <li>Use the App for personal, non-commercial spiritual reflection</li>
+                <li>Create custom notes for your own use</li>
+                <li>Enable notifications for daily reminders</li>
+            </ul>
+
+            <h3>What You Cannot Do</h3>
+            <ul>
+                <li>Reverse engineer or hack the App</li>
+                <li>Distribute or sell the App or its content</li>
+                <li>Use for commercial purposes without permission</li>
+                <li>Transmit malware or harmful code</li>
+                <li>Remove copyright notices or attribution</li>
+            </ul>
+
+            <h3>The App Is "As-Is"</h3>
+            <div class="warning">
+                The app is provided without warranties. We're not responsible for service interruptions, errors, or data loss from third-party services. We're also not liable for indirect or consequential damages.
+            </div>
+
+            <h3>We Can Change These Terms</h3>
+            <p>We may update these terms anytime. Continuing to use the app means you accept changes.</p>
+
+            <h3>We Can Terminate Access</h3>
+            <p>If you violate these terms or engage in harmful behavior, we may terminate your access.</p>
+
+            <h3>Governing Law</h3>
+            <p>These terms are governed by US law.</p>
+        </div>
+
+        <!-- Health Disclaimer -->
+        <div id="health" class="content">
+            <button class="back-btn" onclick="showNav()">← Back to Menu</button>
+            <h2>⚠️ Health & Religious Content Disclaimer</h2>
+            <p class="meta">IMPORTANT - Please read carefully</p>
+
+            <div class="warning">
+                <strong>This app is for personal spiritual reflection only.</strong> It is NOT professional religious counsel, medical advice, or mental health treatment.
+            </div>
+
+            <h3>What This App IS</h3>
+            <ul>
+                <li>A tool for daily Bible reading and personal reflection</li>
+                <li>AI-generated explanations to help understand verses</li>
+                <li>Support for personal spiritual practice</li>
+            </ul>
+
+            <h3>What This App IS NOT</h3>
+            <ul>
+                <li>Professional religious counsel or pastoral guidance</li>
+                <li>A substitute for talking to qualified religious leaders</li>
+                <li>Theological training or academic Bible study</li>
+                <li>Medical advice or mental health treatment</li>
+                <li>A crisis intervention service</li>
+            </ul>
+
+            <h3>AI-Generated Explanations May Contain Errors</h3>
+            <p>These explanations are AI-generated and may:</p>
+            <ul>
+                <li>Contain inaccuracies or oversimplifications</li>
+            </ul>
+            <p><strong>For serious theological questions, consult your religious community's leaders or qualified scholars.</strong></p>
+
+            <h3>🚨 Mental Health Crisis?</h3>
+            <div class="warning">
+                <strong>If you're having thoughts of self-harm, suicide, or are in crisis:</strong><br><br>
+                <strong>CALL OR TEXT IMMEDIATELY:</strong><br>
+                • <strong>National Suicide Prevention Lifeline:</strong> 988 (US)<br>
+                • <strong>Crisis Text Line:</strong> Text HOME to 741741<br>
+                • <strong>Emergency Services:</strong> 911<br>
+                • <strong>Your Local Hospital Emergency Department</strong>
+            </div>
+
+            <h3>Scripture Is Complementary, Not a Substitute</h3>
+            <p>Spiritual practice works best alongside professional care for mental health, addiction, or trauma. Please seek qualified help if you need it.</p>
+        </div>
+
+        <!-- Subscription Terms -->
+        <div id="subscription" class="content">
+            <button class="back-btn" onclick="showNav()">← Back to Menu</button>
+            <h2>Subscription & Refund Policy</h2>
+            <p class="meta">Apple App Store Terms Apply</p>
+
+            <h3>Subscription Plans</h3>
+            <ul>
+                <li><strong>Monthly:</strong> Renews every month</li>
+                <li><strong>Annual:</strong> Renews every year</li>
+                <li>Billed through your Apple ID account</li>
+                <li>Prices shown in USD (App Store may convert for your region)</li>
+            </ul>
+
+            <h3>Automatic Renewal</h3>
+            <ul>
+                <li>Subscriptions renew automatically at the end of each period</li>
+                <li>You'll be charged for the next period unless you cancel</li>
+                <li>You can cancel anytime through Apple Account settings</li>
+                <li>Cancellation takes effect at the end of your current period</li>
+            </ul>
+
+            <h3>How to Cancel</h3>
+            <p><strong>On iPhone:</strong> Settings → [Your Name] → Subscriptions → Godly App → Cancel</p>
+            <p><strong>On Web:</strong> Account.apple.com → Subscriptions → Godly App → Edit → Cancel</p>
+
+            <h3>⚠️ Refund Policy</h3>
+            <div class="warning">
+                <strong>No refunds for unused subscription time.</strong> This is Apple's standard policy. If you're charged after canceling, contact Apple (not us) for resolution.
+            </div>
+
+            <h3>Price Changes</h3>
+            <p>We provide 30 days' notice before price changes. Continued use means you accept new pricing.</p>
+
+            <h3>Free Trial (if offered)</h3>
+            <p>If a free trial is provided, your account converts to paid subscription unless canceled before trial ends.</p>
+
+            <h3>Billing Issues?</h3>
+            <p>For payment disputes or refund requests, contact Apple directly—they handle all billing.</p>
+        </div>
+
+        <!-- Attribution -->
+        <div id="attribution" class="content">
+            <button class="back-btn" onclick="showNav()">← Back to Menu</button>
+            <h2>Third-Party Services & Attribution</h2>
+
+            <h3>OpenAI API</h3>
+            <ul>
+                <li><strong>Privacy:</strong> openai.com/privacy</li>
+                <li><strong>Terms:</strong> openai.com/terms</li>
+            </ul>
+
+            <h3>Bible API</h3>
+            <ul>
+                <li><strong>Service:</strong> bible-api.com</li>
+                <li><strong>Content:</strong> Public domain Scripture</li>
+            </ul>
+
+            <h3>Apple App Store</h3>
+            <ul>
+                <li><strong>Purpose:</strong> Billing and subscriptions</li>
+                <li><strong>Terms:</strong> apple.com/legal/terms</li>
+            </ul>
+
+            <h3>SwiftUI & Swift Foundation</h3>
+            <ul>
+                <li><strong>Purpose:</strong> App development framework</li>
+                <li><strong>License:</strong> Open source</li>
+            </ul>
+
+            <h3>Acknowledgments</h3>
+            <p>Godly App wouldn't exist without amazing open-source projects, Bible APIs, and AI models. We're grateful to all contributors.</p>
+        </div>
+
+        <!-- Support -->
+        <div id="support" class="content">
+            <button class="back-btn" onclick="showNav()">← Back to Menu</button>
+            <h2>Support & Contact</h2>
+
+            <h3>📧 Get In Touch</h3>
+            <p><strong>Email:</strong> <a href="mailto:[Your Support Email]">[Your Support Email]</a></p>
+            <p><strong>Response Time:</strong> 5-7 business days</p>
+            <p><strong>Hours:</strong> Monday-Friday</p>
+
+            <h3>We Can Help With:</h3>
+            <ul>
+                <li>App crashes or technical bugs</li>
+                <li>Subscription and billing questions (Godly App only)</li>
+                <li>Feature requests or feedback</li>
+                <li>Accessibility or user experience issues</li>
+                <li>Privacy or data concerns</li>
+            </ul>
+
+            <h3>We Cannot Help With:</h3>
+            <ul>
+                <li><strong>Apple billing disputes</strong> → Contact Apple directly</li>
+                <li><strong>Theological questions</strong> → Consult religious leaders</li>
+                <li><strong>Mental health crises</strong> → Call 988 or emergency services</li>
+            </ul>
+
+            <h3>Delete Your Data</h3>
+            <p>Since all your data is stored locally on your device:</p>
+            <ul>
+                <li>Simply delete the Godly App to remove all your data</li>
+                <li>Nothing is stored on our servers</li>
+                <li>No backup or recovery possible after deletion</li>
+            </ul>
+
+            <h3>Send Us Feedback</h3>
+            <p>We love bug reports and feature ideas. Email us anytime!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Godly App. All rights reserved.</p>
+        <p>Questions? Email <strong>[Your Support Email]</strong></p>
+    </footer>
+
+    <script>
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+        function showNav() {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.getElementById('privacy').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
